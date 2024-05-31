@@ -1,11 +1,12 @@
 .home {
   width: var(--container-width);
+  height: calc(100vh - 200px);
   margin: auto;
 }
 
 .content {
-  width: 65%;
-  margin: 8rem 0 0 5rem;
+  width: 72%;
+  padding: 8rem 0 0 5rem;
 }
 
 .content h1 {

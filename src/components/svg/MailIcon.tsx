@@ -1,4 +1,4 @@
-export default function MainIcon() {
+export default function MailIcon() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
