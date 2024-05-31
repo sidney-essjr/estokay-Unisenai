@@ -1,0 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Russo+One&display=swap");
+
+:root {
+  --container-width: "1024px";
+  --detail-color: "0, 100%, 60%"; /*#ff3131*/
+  --icons-color: "0, 0%, 65%"; /*#a6a6a6"*/
+  --text-contrast: "0, 0%, 45%"; /*#737373"*/
+  --gap-sm: ".25rem";
+  --gap-s: ".5rem";
+  --gap-m: ".75rem";
+  --gap-l: "1rem";
+  --gap-xl: "2.5rem";
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-decoration: none;
+  box-sizing: border-box;
+}
