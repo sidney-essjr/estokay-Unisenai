@@ -1,0 +1,28 @@
+.header {
+  width: var(--container-width);
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+}
+
+.header img {
+  height: 100%;
+}
+
+.acessar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: var(--gap-l);
+  width: 200px;
+  border-left: 1px groove var(--icons-color);
+  height: 30%;
+  cursor: pointer;
+}
+
+.acessar p {
+  font-weight: 500;
+  color: var(--icons-color);
+}

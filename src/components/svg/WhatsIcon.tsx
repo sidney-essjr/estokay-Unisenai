@@ -1,7 +1,7 @@
 export default function WhatsIcon() {
   return (
     <svg
-      fill="#a6a6a699"
+      fill="var(--icons-color)"
       height="24px"
       width="24px"
       version="1.1"
