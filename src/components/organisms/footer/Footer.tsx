@@ -1,4 +1,4 @@
-import ContactContainer from "../../_molecules/contact/ContactContainer";
+import ContactContainer from "../../molecules/contact/ContactContainer";
 import styles from "./footer.module.css";
 
 export default function Footer() {

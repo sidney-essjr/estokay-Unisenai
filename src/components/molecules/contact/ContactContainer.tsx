@@ -1,7 +1,7 @@
 import CallIcon from "../../../assets/svg/CallIcon";
 import MailIcon from "../../../assets/svg/MailIcon";
 import WhatsIcon from "../../../assets/svg/WhatsIcon";
-import ContactBox from "../../_atoms/box/contact/ContactBox";
+import ContactBox from "../../atoms/box/contact/ContactBox";
 import styles from "./contactContainer.module.css";
 
 export default function ContactContainer({ helpText }: { helpText: string }) {
