@@ -1,16 +1,17 @@
 .home {
   width: var(--container-width);
   height: calc(100vh - 200px);
+  min-height: 500px;
   margin: auto;
 }
 
 .content {
-  width: 72%;
+  width: 725px;
   padding: 8rem 0 0 5rem;
 }
 
 .content h1 {
-    letter-spacing: 1.8px;
+  letter-spacing: 1.8px;
   font-size: 2.6rem;
   margin-bottom: var(--gap-l);
 }
