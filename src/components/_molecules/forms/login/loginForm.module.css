@@ -1,0 +1,9 @@
+.content {
+  width: 450px;
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--gap-xl);
+  justify-content: center;
+  align-items: center;
+  padding: var(--gap-l);
+}

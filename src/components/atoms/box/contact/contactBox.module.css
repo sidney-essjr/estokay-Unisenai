@@ -1,9 +1,0 @@
-.contact {
-  display: flex;
-  flex-direction: column;
-  row-gap: var(--gap-m);
-}
-
-.contact p {
-  font-size: 0.875rem;
-}

@@ -1,0 +1,14 @@
+.header {
+  width: var(--container-width);
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+}
+
+.header img {
+  height: 100%;
+}
+
+

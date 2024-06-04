@@ -1,16 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { RouterProvider } from "react-router-dom";
 import "./main.css";
-import Header from "./components/organisms/header/Header";
-import Home from "./components/organisms/home/Home";
-import Footer from "./components/organisms/footer/Footer";
+import router from "./router/Router";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <Header />
-    <main>
-      <Home />
-    </main>
-    <Footer />
+    <RouterProvider router={router} />
   </React.StrictMode>
 );

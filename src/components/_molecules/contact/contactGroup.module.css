@@ -1,0 +1,7 @@
+.content {
+  display: flex;
+  align-items: center;
+  column-gap: var(--gap-xl);
+  padding-inline: var(--gap-xl);
+  font-size: 1.25rem;
+}

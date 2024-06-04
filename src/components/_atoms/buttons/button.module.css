@@ -1,0 +1,21 @@
+.default {
+  border: none;
+  border-radius: 2px;
+  color: #fff;
+  font-weight: 700;
+  font-size: var(--gap-m);
+  padding: var(--gap-l);
+  text-transform: uppercase;
+}
+
+button:hover {
+    opacity: .9;
+}
+
+.primary {
+  background-color: var(--detail-color);
+}
+
+.secondary {
+  background-color: hsl(151, 63%, 39%);
+}
