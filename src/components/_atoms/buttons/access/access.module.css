@@ -1,0 +1,14 @@
+.container {
+margin-block: auto;
+  }
+  
+.access {
+  display: flex;
+  align-items: center;
+  column-gap: var(--gap-m);
+}
+
+  .access p {
+    font-weight: 500;
+    color: var(--icons-color);
+  }
