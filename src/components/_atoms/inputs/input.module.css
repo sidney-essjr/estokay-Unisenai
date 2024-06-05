@@ -5,10 +5,6 @@
   row-gap: var(--gap-s);
 }
 
-.container label {
-  text-transform: uppercase;
-}
-
 .container input {
   padding: var(--gap-m);
   font-size: var(--gap-l);
@@ -20,4 +16,13 @@
 .container input::selection {
   color: #fff;
   background-color: var(--detail-color);
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.info label {
+  text-transform: uppercase;
 }

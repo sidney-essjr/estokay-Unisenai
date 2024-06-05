@@ -7,8 +7,7 @@
   margin: auto;
 }
 
-.header img {
+.header a,
+img {
   height: 100%;
 }
-
-

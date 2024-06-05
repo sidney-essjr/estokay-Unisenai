@@ -1,7 +1,10 @@
+import { useAuth } from "../../../contexts/authContext";
 import LoginButton from "../../_atoms/buttons/login/LoginButton";
 
 export default function LoginHandler() {
-  const username = "Acessar"; // deve conter a logica para verificar se o usuario esta logado
+  const auth = useAuth();
 
-  return <LoginButton username={username} />;
+  const path = auth?.currentUser ? "/main" : "/login";
+
+  return <LoginButton path={path} />;
 }

@@ -1,0 +1,4 @@
+.validationError {
+  color: var(--detail-color);
+  font-size: var(--gap-m);
+}
