@@ -1,7 +1,4 @@
 .container {
   display: flex;
-}
-
-.content {
-  margin: auto;
+  column-gap: var(--gap-xl);
 }

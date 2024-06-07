@@ -5,6 +5,7 @@ import MainPage from "../pages/MainPage";
 import RootLayout from "../pages/layout/RootLayout";
 import UserRegistrationPage from "../pages/UserRegistrationPage";
 import ProtectedRoute from "./ProtectedRoute";
+import UserRegistration from "../components/_organisms/user/registration/UserRegistration";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,22 @@ const router = createBrowserRouter([
       },
       {
         path: "/user_registration",
+        element: (
+          <ProtectedRoute redirectPath="/login">
+            <UserRegistration />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "/donator_registration",
+        element: (
+          <ProtectedRoute redirectPath="/login">
+            <UserRegistrationPage />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "/donation_registration",
         element: (
           <ProtectedRoute redirectPath="/login">
             <UserRegistrationPage />

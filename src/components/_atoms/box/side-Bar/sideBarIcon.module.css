@@ -1,5 +1,5 @@
 .container {
-  width: 160px;
+  width: 180px;
   text-align: center;
 }
 
@@ -16,10 +16,10 @@
 .content p {
   text-transform: uppercase;
   color: var(--text-contrast);
-  font-size: 14px;
+  font-size: 13px;
   padding-block: 2px;
   font-family: "Teachers" monospace;
   letter-spacing: 1px;
-  width: 100px;
+  width: 120px;
   text-align: left;
 }

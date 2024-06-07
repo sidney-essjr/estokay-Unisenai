@@ -8,9 +8,9 @@ export default function RootLayout() {
   return (
     <>
       <Header />
-      <div className={styles.container}>
+      <div className={location.pathname !== "/" ? styles.container : ""}>
         {location.pathname !== "/" && <SideBar />}
-        <main>
+        <main className={location.pathname !== "/" ? styles.content : ""}>
           <Outlet />
         </main>
       </div>
