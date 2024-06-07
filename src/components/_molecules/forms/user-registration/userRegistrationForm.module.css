@@ -1,0 +1,13 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: var(--gap-xl);
+    width: 510px;
+    margin-inline: auto;
+    padding: var(--gap-l);
+}
+
+.container button {
+    width: 200px;
+}

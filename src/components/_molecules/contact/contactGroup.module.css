@@ -1,7 +1,10 @@
 .content {
   display: flex;
   align-items: center;
-  column-gap: var(--gap-xl);
-  padding-inline: var(--gap-xl);
+  column-gap: 3rem;
+  padding-right: 7rem;
   font-size: 1.25rem;
+}
+.content p {
+  color: var(--icons-color);
 }

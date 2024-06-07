@@ -1,14 +1,15 @@
 .container {
-margin-block: auto;
-  }
-  
+  margin-block: auto;
+  margin-right: 7rem;
+}
+
 .access {
   display: flex;
   align-items: center;
   column-gap: var(--gap-m);
 }
 
-  .access p {
-    font-weight: 500;
-    color: var(--icons-color);
-  }
+.access p {
+  font-weight: 500;
+  color: var(--icons-color);
+}

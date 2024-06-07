@@ -26,7 +26,7 @@ export default function LoginForm() {
   return (
     <form
       id="firebaseui-auth-container"
-      className={styles.content}
+      className={styles.container}
       onSubmit={handleSubmit(onSubmit)}
     >
       <Input

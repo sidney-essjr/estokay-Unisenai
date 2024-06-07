@@ -1,0 +1,27 @@
+.container {
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  display: flex;
+  background-color: hsl(121, 29%, 44%);
+  align-items: center;
+  column-gap: var(--gap-l);
+  border-radius: 2px;
+  padding: 1rem 4rem;
+}
+
+.icon {
+  width: 30px;
+  height: 30px;
+}
+
+.log {
+  color: hsl(120, 12%, 19%);
+  font-weight: 500;
+}

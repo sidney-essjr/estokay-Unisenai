@@ -1,0 +1,41 @@
+.container {
+  width: 100%;
+  height: 48px;
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--gap-s);
+}
+
+.content input[type="checkbox"] {
+  appearance: none;
+  border: 1px solid hsl(202, 100%, 65%);
+  border-radius: 50%;
+  width: 26px;
+  height: 26px;
+}
+
+.content input[type="checkbox"]:checked {
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAtOTYwIDk2MCA5NjAiIHdpZHRoPSIyNHB4IiBmaWxsPSJoc2woMjAyLCAxMDAlLCA2NSUpIj48cGF0aCBkPSJNMzgyLTI0MCAxNTQtNDY4bDU3LTU3IDE3MSAxNzEgMzY3LTM2NyA1NyA1Ny00MjQgNDI0WiIvPjwvc3ZnPg==);
+  background-position: center;
+}
+
+.content {
+  display: flex;
+  column-gap: var(--gap-l);
+  align-items: center;
+}
+
+.content p,
+span {
+  font-weight: 500;
+  font-size: 14px;
+  font-family: monospace;
+}
+
+.content span {
+  color: hsl(202, 100%, 65%);
+}
+
+.content span:hover {
+  color: hsl(202, 100%, 55%);
+}

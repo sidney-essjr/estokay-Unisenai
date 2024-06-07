@@ -1,14 +1,13 @@
-
 :root {
-  --container-width: 1024px;
+  --container-width: 100%;
   --detail-color: hsl(0, 100%, 60%); /*#ff3131*/
-  --icons-color: hsla(60, 7%, 63%, 0.65); /*#a6a6a699*/
-  --text-contrast: hsl(0, 0%, 65%); /*#a6a6a6*/
+  --icons-color: hsla(0, 0%, 75%); /*#bfbfbf*/
+  --text-contrast: hsl(0, 0%, 45%); /*#737373*/
   --gap-sm: 0.25rem;
   --gap-s: 0.5rem;
   --gap-m: 0.75rem;
   --gap-l: 1rem;
-  --gap-xl: 2.5rem;
+  --gap-xl: 2rem;
 }
 
 * {
@@ -17,6 +16,14 @@
   list-style: none;
   text-decoration: none;
   box-sizing: border-box;
-  font-family: "Roboto", sans-serif;
+  font-family: "Teachers", sans-serif;
+  font-style: normal;
+  font-optical-sizing: auto;
   color: var(--text-contrast);
+}
+
+.animeLeft {
+  opacity: 0;
+  transform: translateX(-20px);
+  animation: animeLeft 0.3s forwards;
 }

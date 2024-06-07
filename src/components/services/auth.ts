@@ -6,14 +6,21 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   updatePassword,
+  updateProfile,
 } from "firebase/auth";
 import { auth } from "../../firebase/firebase";
 
 export const doCreateUserWithEmailAndPassword = async (
+  name: string,
   email: string,
   password: string
 ) => {
-  return createUserWithEmailAndPassword(auth, email, password);
+  updateProfile(
+    (await createUserWithEmailAndPassword(auth, email, password)).user,
+    { displayName: name }
+  ).catch((error) => {
+    throw new Error(error);
+  });
 };
 
 export const doSignInWithEmailAndPassword = (

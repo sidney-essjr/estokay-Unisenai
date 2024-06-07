@@ -3,6 +3,7 @@ import HomePage from "../pages/HomePage";
 import LoginPage from "../pages/LoginPage";
 import MainPage from "../pages/MainPage";
 import RootLayout from "../pages/RootLayout";
+import UserRegistrationPage from "../pages/UserRegistrationPage";
 import ProtectedRoute from "./ProtectedRoute";
 
 const router = createBrowserRouter([
@@ -19,6 +20,14 @@ const router = createBrowserRouter([
         element: (
           <ProtectedRoute redirectPath="/login">
             <MainPage />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "/user_registration",
+        element: (
+          <ProtectedRoute redirectPath="/login">
+            <UserRegistrationPage />
           </ProtectedRoute>
         ),
       },

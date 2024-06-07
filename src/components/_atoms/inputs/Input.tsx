@@ -3,7 +3,7 @@ import ValidationError from "../../helper/erros/ValidationError";
 import styles from "./input.module.css";
 
 type InputProps = ComponentPropsWithRef<"input"> & {
-  id?: string;
+  id: string;
   label: string;
   errors: string | undefined;
 };
