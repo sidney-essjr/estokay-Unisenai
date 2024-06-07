@@ -1,0 +1,27 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  row-gap: var(--gap-xl);
+  width: 82px;
+  border-right: 2px solid #d9d9d9;
+  height: calc(100vh - 120px);
+  padding: 2rem var(--gap-l) ;
+  transition: 0.5s ease-in;
+  min-height: 400px;
+}
+
+.container p {
+  opacity: 0;
+  transform: translateX(30%);
+  transition: transform 0.5s ease-in, opacity 0.5s ease-in;
+}
+
+.container:hover {
+  width: 210px;
+}
+
+.container:hover p {
+  transform: translateX(0%);
+  opacity: 1;
+}

@@ -6,5 +6,5 @@
   font-size: 1.25rem;
 }
 .content p {
-  color: var(--icons-color);
+  color: var(--text-contrast);
 }

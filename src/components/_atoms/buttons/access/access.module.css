@@ -11,5 +11,5 @@
 
 .access p {
   font-weight: 500;
-  color: var(--icons-color);
+  color: var(--text-contrast);
 }
