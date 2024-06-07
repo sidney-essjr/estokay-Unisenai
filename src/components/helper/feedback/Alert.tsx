@@ -26,7 +26,7 @@ export default function Alert({
   if (!isOpen) return null;
 
   return (
-    <aside className={`animeLeft ${styles.container}`}>
+    <aside className={styles.container}>
       <div className={styles.content}>
         <div className={styles.icon}>{icon}</div>
         <div className={styles.log}>{log}</div>
