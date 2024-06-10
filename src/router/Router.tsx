@@ -1,11 +1,12 @@
 import { createBrowserRouter } from "react-router-dom";
+import UserRegistration from "../components/_organisms/user/registration/UserRegistration";
+import DonatorRegistrationPage from "../pages/DonatorRegistrationPage";
 import HomePage from "../pages/HomePage";
+import RootLayout from "../pages/layout/RootLayout";
 import LoginPage from "../pages/LoginPage";
 import MainPage from "../pages/MainPage";
-import RootLayout from "../pages/layout/RootLayout";
 import UserRegistrationPage from "../pages/UserRegistrationPage";
 import ProtectedRoute from "./ProtectedRoute";
-import UserRegistration from "../components/_organisms/user/registration/UserRegistration";
 
 const router = createBrowserRouter([
   {
@@ -25,26 +26,26 @@ const router = createBrowserRouter([
         ),
       },
       {
+        path: "main/donator_registration",
+        element: (
+          <ProtectedRoute redirectPath="/login">
+            <DonatorRegistrationPage />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "main/donation_registration",
+        element: (
+          <ProtectedRoute redirectPath="/login">
+            <UserRegistrationPage />
+          </ProtectedRoute>
+        ),
+      },
+      {
         path: "/user_registration",
         element: (
           <ProtectedRoute redirectPath="/login">
             <UserRegistration />
-          </ProtectedRoute>
-        ),
-      },
-      {
-        path: "/donator_registration",
-        element: (
-          <ProtectedRoute redirectPath="/login">
-            <UserRegistrationPage />
-          </ProtectedRoute>
-        ),
-      },
-      {
-        path: "/donation_registration",
-        element: (
-          <ProtectedRoute redirectPath="/login">
-            <UserRegistrationPage />
           </ProtectedRoute>
         ),
       },

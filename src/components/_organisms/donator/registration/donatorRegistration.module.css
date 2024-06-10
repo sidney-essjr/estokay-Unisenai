@@ -1,0 +1,11 @@
+.container {
+    width: var(--container-width);
+    height: calc(100vh - 100px);
+    min-height: 500px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 4rem;
+  }
+  
