@@ -21,7 +21,7 @@
 
 .content .header {
   display: flex;
-  padding-bottom: 1rem;
+  padding-bottom: 2rem;
 }
 
 .content h1 {
@@ -40,7 +40,7 @@
 .contentInfo {
   margin: auto;
   width: 90%;
-  height: 75%;
+  height: 83%;
   padding: 30px;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);

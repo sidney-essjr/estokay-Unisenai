@@ -38,6 +38,8 @@ export default function UserRegistrationForm({
         data.email,
         data.password
       );
+      openAlert();
+      reset();
     } catch (error: unknown) {
       if (error instanceof Error) {
         setSubmitError({ error: true, message: "Este e-mail já está em uso" });
@@ -45,8 +47,6 @@ export default function UserRegistrationForm({
         setSubmitError({ error: true, message: "Erro desconhecido" });
       }
     }
-    openAlert();
-    reset();
   }
 
   return (
@@ -86,7 +86,7 @@ export default function UserRegistrationForm({
         {...register("agreement")}
       />
       <Button disabled={isSubmitting} variant="secondary">
-        {isSubmitting ? <Loading /> : "Entrar"}
+        {isSubmitting ? <Loading /> : "Confirmar"}
       </Button>
       {submitError.error && (
         <ValidationError>{submitError.message}</ValidationError>

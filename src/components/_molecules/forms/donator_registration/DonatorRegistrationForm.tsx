@@ -1,14 +1,17 @@
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useForm, useWatch } from "react-hook-form";
 import Button from "../../../_atoms/buttons/Button";
 import Input from "../../../_atoms/inputs/Input";
+import ValidationError from "../../../helper/erros/ValidationError";
 import {
   donatorRegistration,
   FormDonatorRegistration,
 } from "../../../helper/validations";
 import { getCepInfo } from "../../../services/getCepInfo";
+import postDonator from "../../../services/postDonator";
 import styles from "./donatorRegistration.module.css";
+import Loading from "../../../../assets/svg/Loading";
 
 export default function DonatorRegistrationForm({
   openAlert,
@@ -22,10 +25,11 @@ export default function DonatorRegistrationForm({
     setValue,
     getValues,
     control,
-    formState: { errors },
+    formState: { errors, isSubmitting },
   } = useForm<FormDonatorRegistration>({
     resolver: zodResolver(donatorRegistration),
   });
+  const [submitError, setSubmitError] = useState({ error: false, message: "" });
 
   const cep = useWatch<FormDonatorRegistration>({ control, name: "cep" });
 
@@ -50,10 +54,14 @@ export default function DonatorRegistrationForm({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cep]);
 
-  function onSubmit(data: FormDonatorRegistration) {
-    console.log(data);
-    reset();
-    openAlert();
+  async function onSubmit(data: FormDonatorRegistration) {
+    const result = await postDonator(data);
+    if (result.error) {
+      setSubmitError({ error: true, message: result.error });
+    } else {
+      reset();
+      openAlert();
+    }
   }
 
   return (
@@ -61,28 +69,28 @@ export default function DonatorRegistrationForm({
       <Input
         id="nome"
         errors={errors.name?.message}
-        label="nome completo"
+        label="nome completo*"
         placeholder="ex. nome do doador"
         {...register("name")}
       />
       <Input
         id="telefone"
         errors={errors.phone?.message}
-        label="telefone"
+        label="telefone*"
         placeholder="ex. (xx) xxxxx-xxxx"
         {...register("phone")}
       />
       <Input
         id="cep"
         errors={errors.cep?.message}
-        label="cep"
+        label="cep*"
         placeholder="ex. xxxxx-xxx"
         {...register("cep")}
       />
       <Input
         id="endereco"
         errors={errors.address?.message}
-        label="endereço"
+        label="endereço*"
         placeholder="ex endereço do doador"
         {...register("address")}
       />
@@ -96,7 +104,7 @@ export default function DonatorRegistrationForm({
       <Input
         id="bairro"
         errors={errors.city?.message}
-        label="bairro"
+        label="bairro*"
         placeholder="ex. bairro do doador"
         {...register("city")}
       />
@@ -104,19 +112,25 @@ export default function DonatorRegistrationForm({
       <Input
         id="cidade"
         errors={errors.city?.message}
-        label="cidade"
+        label="cidade*"
         placeholder="ex. cidade do doador"
         {...register("district")}
       />
       <Input
         id="uf"
         errors={errors.uf?.message}
-        label="uf"
+        label="uf*"
         placeholder="ex. uf"
         {...register("uf")}
       />
 
-      <Button variant="secondary">confirmar</Button>
+      <Button disabled={isSubmitting} variant="secondary">
+        {isSubmitting ? <Loading /> : "Confirmar"}
+      </Button>
+
+      {submitError.error && (
+        <ValidationError>{submitError.message}</ValidationError>
+      )}
     </form>
   );
 }

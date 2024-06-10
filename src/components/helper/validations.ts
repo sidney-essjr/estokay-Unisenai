@@ -31,6 +31,7 @@ export const donatorRegistration = z.object({
   district: z.string().min(3, { message: "Campo obrigatório!" }),
   phone: z
     .string()
+    .min(1, { message: "Campo obrigatório!" })
     .regex(/^(\d{2})(\d{5})(\d{4})|(\d{2})(\d{4})(\d{4})$/, {
       message: "Digite apenas números!",
     })

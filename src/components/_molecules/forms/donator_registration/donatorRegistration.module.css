@@ -7,7 +7,8 @@
     "left center3 center3 rigth"
     "left center4 center4 rigth"
     "left center5 center5 rigth"
-    "left center6 center6 rigth";
+    "left center6 center6 rigth"
+    "left center7 center7 rigth";
   align-items: center;
   row-gap: var(--gap-xl);
   column-gap: 1rem;
@@ -39,5 +40,10 @@
 .container button {
   width: 200px;
   grid-area: center6;
+  margin: auto;
+}
+
+.container div:nth-child(10) {
+  grid-area: center7;
   margin: auto;
 }
