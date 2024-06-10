@@ -1,11 +1,11 @@
 import { createBrowserRouter } from "react-router-dom";
+import DonationRegistration from "../components/_organisms/donations/registration/DonationRegistration";
 import UserRegistration from "../components/_organisms/user/registration/UserRegistration";
 import DonatorRegistrationPage from "../pages/DonatorRegistrationPage";
 import HomePage from "../pages/HomePage";
 import RootLayout from "../pages/layout/RootLayout";
 import LoginPage from "../pages/LoginPage";
 import MainPage from "../pages/MainPage";
-import UserRegistrationPage from "../pages/UserRegistrationPage";
 import ProtectedRoute from "./ProtectedRoute";
 
 const router = createBrowserRouter([
@@ -37,7 +37,7 @@ const router = createBrowserRouter([
         path: "main/donation_registration",
         element: (
           <ProtectedRoute redirectPath="/login">
-            <UserRegistrationPage />
+            <DonationRegistration />
           </ProtectedRoute>
         ),
       },

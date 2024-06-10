@@ -1,7 +1,7 @@
 import { useState } from "react";
 import CheckIcon from "../../../../assets/svg/CheckIcon";
 import Title from "../../../_atoms/text/home/Title";
-import DonatorRegistrationForm from "../../../_molecules/forms/donator_registration/DonatorRegistrationForm";
+import DonatorRegistrationForm from "../../../_molecules/forms/donator-registration/DonatorRegistrationForm";
 import Alert from "../../../helper/feedback/Alert";
 import styles from "./donatorRegistration.module.css";
 

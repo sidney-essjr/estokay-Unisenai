@@ -1,6 +1,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useEffect, useState } from "react";
 import { useForm, useWatch } from "react-hook-form";
+import Loading from "../../../../assets/svg/Loading";
 import Button from "../../../_atoms/buttons/Button";
 import Input from "../../../_atoms/inputs/Input";
 import ValidationError from "../../../helper/erros/ValidationError";
@@ -11,7 +12,6 @@ import {
 import { getCepInfo } from "../../../services/getCepInfo";
 import postDonator from "../../../services/postDonator";
 import styles from "./donatorRegistration.module.css";
-import Loading from "../../../../assets/svg/Loading";
 
 export default function DonatorRegistrationForm({
   openAlert,
@@ -23,7 +23,6 @@ export default function DonatorRegistrationForm({
     handleSubmit,
     reset,
     setValue,
-    getValues,
     control,
     formState: { errors, isSubmitting },
   } = useForm<FormDonatorRegistration>({
@@ -47,7 +46,6 @@ export default function DonatorRegistrationForm({
   }
 
   useEffect(() => {
-    console.log(getValues("uf"));
     if (cep?.length === 8) {
       cepInfo();
     }

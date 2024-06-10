@@ -1,4 +1,9 @@
-import { ComponentPropsWithRef, ForwardedRef, forwardRef } from "react";
+import {
+  ComponentPropsWithRef,
+  ForwardedRef,
+  forwardRef,
+  ReactNode,
+} from "react";
 import ValidationError from "../../helper/erros/ValidationError";
 import styles from "./input.module.css";
 
