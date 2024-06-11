@@ -1,43 +1,29 @@
 export default function Loading() {
   return (
     <svg
-      version="1.1"
-      id="L4"
       xmlns="http://www.w3.org/2000/svg"
-      x="0px"
-      y="0px"
-      height="24px"
       width="24px"
-      viewBox="0 0 100 100"
-      enable-background="new 0 0 0 0"
+      height="11px"
+      viewBox="0 0 300 150"
     >
-      <circle fill="#fff" stroke="none" cx="6" cy="50" r="6">
+      <path
+        fill="none"
+        stroke="#FFFFFF"
+        stroke-width="15"
+        stroke-linecap="round"
+        stroke-dasharray="300 385"
+        stroke-dashoffset="0"
+        d="M275 75c0 31-27 50-50 50-58 0-92-100-150-100-28 0-50 22-50 50s23 50 50 50c58 0 92-100 150-100 24 0 50 19 50 50Z"
+      >
         <animate
-          attributeName="opacity"
-          dur="1s"
-          values="0;1;0"
+          attributeName="stroke-dashoffset"
+          calcMode="spline"
+          dur="2"
+          values="685;-685"
+          keySplines="0 0 1 1"
           repeatCount="indefinite"
-          begin="0.1"
-        />
-      </circle>
-      <circle fill="#fff" stroke="none" cx="26" cy="50" r="6">
-        <animate
-          attributeName="opacity"
-          dur="1s"
-          values="0;1;0"
-          repeatCount="indefinite"
-          begin="0.2"
-        />
-      </circle>
-      <circle fill="#fff" stroke="none" cx="46" cy="50" r="6">
-        <animate
-          attributeName="opacity"
-          dur="1s"
-          values="0;1;0"
-          repeatCount="indefinite"
-          begin="0.3"
-        />
-      </circle>
+        ></animate>
+      </path>
     </svg>
   );
 }
