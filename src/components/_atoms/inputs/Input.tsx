@@ -11,11 +11,12 @@ type InputProps = ComponentPropsWithRef<"input"> & {
   id: string;
   label: string;
   errors: string | undefined;
+  type?: "text" | "number" | "date"
 };
 
 const Input = forwardRef(
   (
-    { id, label, errors, ...rest }: InputProps,
+    { id, label, errors, type, ...rest }: InputProps,
     ref: ForwardedRef<HTMLDivElement>
   ) => {
     return (
@@ -26,7 +27,7 @@ const Input = forwardRef(
         </div>
         <input
           id={id}
-          type="text"
+          type={type || "text"}
           {...rest}
           onInput={(e) => e.currentTarget.setCustomValidity("")}
         />
