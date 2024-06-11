@@ -10,6 +10,7 @@ import {
 } from "../../../helper/validations";
 import { DonatorsI } from "../../../services/getDonators";
 import styles from "./donationRegistrationForm.module.css";
+import ValidationError from "../../../helper/erros/ValidationError";
 
 export default function DonationRegistrationForm({
   data,
@@ -28,7 +29,8 @@ export default function DonationRegistrationForm({
   });
 
   const [donators, setDonators] = useState(data);
-
+  const [submitError, setSubmitError] = useState({ error: false, message: "" });
+  
   useEffect(() => {
     setDonators(data);
   }, [data]);
@@ -45,6 +47,7 @@ export default function DonationRegistrationForm({
         id="item"
         label="item*"
         errors={errors.item?.message}
+        placeholder="ex. nome"
         {...register("item")}
       />
       <Input
@@ -52,11 +55,13 @@ export default function DonationRegistrationForm({
         label="tipo*"
         list="lista-tipo"
         errors={errors.type?.message}
+        placeholder="ex. alimento"
         {...register("type")}
       />
       <datalist id="lista-tipo">
         <option value="Alimento"></option>
         <option value="Brinquedo"></option>
+        <option value="Higiene"></option>
         <option value="Utensílio Doméstico"></option>
         <option value="Vestuário"></option>
         <option value="Outros"></option>
@@ -65,26 +70,38 @@ export default function DonationRegistrationForm({
         type="number"
         id="quantidade"
         label="quantidade*"
+        step="0.1"
         errors={errors.quantity?.message}
+        placeholder="ex. 0.0"
         {...register("quantity")}
       />
       <Input
         id="tamanho"
-        label="tamanho*"
-        list="lista-tamanho"
+        label="tamanho"
         errors={errors.size?.message}
+        placeholder="ex.p"
         {...register("size")}
       />
-      <datalist id="lista-tamanho">
-        <option value="Pequeno"></option>
-        <option value="Médio"></option>
-        <option value="Grande"></option>
+      <Input
+        id="medida"
+        label="medida*"
+        list="lista-medida"
+        errors={errors.measure?.message}
+        placeholder="ex. kg"
+        {...register("measure")}
+      />
+      <datalist id="lista-medida">
+        <option value="KG"></option>
+        <option value="LT"></option>
+        <option value="PC"></option>
+        <option value="UN"></option>
       </datalist>
       <Input
         id="doador"
         label="doador*"
         list="lista-doador"
         errors={errors.donator?.message}
+        placeholder="Selecione o doador"
         {...register("donator")}
       />
       <datalist id="lista-doador">
@@ -102,7 +119,7 @@ export default function DonationRegistrationForm({
       <Input
         type="date"
         id="validade"
-        label="validade*"
+        label="validade"
         errors={errors.validity?.message}
         {...register("validity")}
       />
@@ -110,9 +127,9 @@ export default function DonationRegistrationForm({
         {isSubmitting ? <Loading /> : "Confirmar"}
       </Button>
 
-      {/* {submitError.error && (
+      {submitError.error && (
         <ValidationError>{submitError.message}</ValidationError>
-      )} */}
+      )}
     </form>
   );
 }

@@ -27,8 +27,8 @@ export default function DonationRegistration() {
 
   return (
     <section className={styles.container}>
-      <Title>Cadastro Doador</Title>
-      <DonationRegistrationForm data={donators} openAlert={handleOpenAlert} />;
+      <Title>Cadastro Doação</Title>
+      <DonationRegistrationForm data={donators} openAlert={handleOpenAlert} />
       <Alert
         icon={<CheckIcon />}
         isOpen={showAlert}
