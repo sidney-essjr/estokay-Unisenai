@@ -4,13 +4,13 @@ import { useForm } from "react-hook-form";
 import Loading from "../../../../assets/svg/Loading";
 import Button from "../../../_atoms/buttons/Button";
 import Input from "../../../_atoms/inputs/Input";
+import ValidationError from "../../../helper/erros/ValidationError";
 import {
   donationRegistration,
   FormDonationRegistration,
 } from "../../../helper/validations";
 import { DonatorsI } from "../../../services/getDonators";
 import styles from "./donationRegistrationForm.module.css";
-import ValidationError from "../../../helper/erros/ValidationError";
 
 export default function DonationRegistrationForm({
   data,
@@ -30,7 +30,7 @@ export default function DonationRegistrationForm({
 
   const [donators, setDonators] = useState(data);
   const [submitError, setSubmitError] = useState({ error: false, message: "" });
-  
+
   useEffect(() => {
     setDonators(data);
   }, [data]);
