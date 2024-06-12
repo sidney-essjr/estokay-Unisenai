@@ -1,5 +1,5 @@
-import DonationRegistrationForm from "../components/_molecules/forms/donation-registration/DonationRegistrationForm";
+import DonationRegistration from "../components/_organisms/donations/registration/DonationRegistration";
 
 export default function DonationRegistrationPage() {
-  return <DonationRegistrationForm />;
+  return <DonationRegistration />;
 }
