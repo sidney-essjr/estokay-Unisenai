@@ -38,6 +38,7 @@ export default function DonationRegistrationForm({
   function onSubmit(data: FormDonationRegistration) {
     console.log(data);
     reset();
+    setSubmitError({ error: true, message: "" });
     openAlert();
   }
 

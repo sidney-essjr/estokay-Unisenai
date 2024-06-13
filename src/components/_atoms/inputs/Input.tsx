@@ -1,9 +1,4 @@
-import {
-  ComponentPropsWithRef,
-  ForwardedRef,
-  forwardRef,
-  ReactNode,
-} from "react";
+import { ComponentPropsWithRef, ForwardedRef, forwardRef } from "react";
 import ValidationError from "../../helper/erros/ValidationError";
 import styles from "./input.module.css";
 
@@ -11,7 +6,7 @@ type InputProps = ComponentPropsWithRef<"input"> & {
   id: string;
   label: string;
   errors: string | undefined;
-  type?: "text" | "number" | "date"
+  type?: "text" | "number" | "date" | "email" | "password";
 };
 
 const Input = forwardRef(
