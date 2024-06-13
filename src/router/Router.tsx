@@ -43,7 +43,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "main/report",
+        path: "/report",
         element: (
           <ProtectedRoute redirectPath="/login">
             <ReportPage />

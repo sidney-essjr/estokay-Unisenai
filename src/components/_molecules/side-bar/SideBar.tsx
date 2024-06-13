@@ -15,7 +15,7 @@ export default function SideBar() {
       <Link to={"user_registration"}>
         <SideBarIcon icon={<NewUserIcon />} text="+ Voluntário" />
       </Link>
-      <Link to={""}>
+      <Link to={"/report"}>
         <SideBarIcon icon={<ReportIcon />} text="relatórios" />
       </Link>
       <Link to={""}>
