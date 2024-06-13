@@ -7,6 +7,7 @@ import RootLayout from "../pages/layout/RootLayout";
 import LoginPage from "../pages/LoginPage";
 import MainPage from "../pages/MainPage";
 import ProtectedRoute from "./ProtectedRoute";
+import ReportPage from "../pages/ReportPage";
 
 const router = createBrowserRouter([
   {
@@ -38,6 +39,14 @@ const router = createBrowserRouter([
         element: (
           <ProtectedRoute redirectPath="/login">
             <DonationRegistration />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "main/report",
+        element: (
+          <ProtectedRoute redirectPath="/login">
+            <ReportPage />
           </ProtectedRoute>
         ),
       },

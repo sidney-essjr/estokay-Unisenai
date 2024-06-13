@@ -1,0 +1,25 @@
+.form {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.form input {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+
+.form > div {
+  max-width: 150px;
+}
+
+.form button {
+  flex-shrink: 0;
+  flex-grow: 0;
+  flex-basis: auto;
+  align-self: self-end;
+  padding: var(--gap-l) 2rem;
+  font-size: var(--gap-l);
+}
