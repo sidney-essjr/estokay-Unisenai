@@ -5,7 +5,7 @@ import styles from "./input.module.css";
 type InputProps = ComponentPropsWithRef<"input"> & {
   id: string;
   label: string;
-  errors: string | undefined;
+  errors?: string | undefined;
   type?: "text" | "number" | "date" | "email" | "password";
 };
 

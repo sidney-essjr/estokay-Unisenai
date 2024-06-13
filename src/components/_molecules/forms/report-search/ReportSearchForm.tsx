@@ -1,46 +1,81 @@
+import { FormEvent, useState } from "react";
 import Loading from "../../../../assets/svg/Loading";
 import Button from "../../../_atoms/buttons/Button";
 import Input from "../../../_atoms/inputs/Input";
 import styles from "./reportSearchForm.module.css";
 
-export default function ReportSearchForm() {
+export type ReportI = {
+  item: string;
+  tipo: string;
+  tamanho: string;
+  validade: string;
+};
+
+export default function ReportSearchForm({
+  reportSearch,
+  isSearching,
+}: {
+  reportSearch: (report: ReportI) => void;
+  isSearching: boolean;
+}) {
+  const [report, setReport] = useState<ReportI>({
+    item: "",
+    tipo: "",
+    tamanho: "",
+    validade: "",
+  });
+
+  function handleReport(event: HTMLInputElement) {
+    setReport((prev) => {
+      return {
+        ...prev,
+        [event.name]: event.value,
+      };
+    });
+  }
+
+  async function onSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    reportSearch(report);
+  }
+
   return (
-    <form className={styles.form}>
+    <form className={styles.form} onSubmit={onSubmit}>
       <Input
         id="item"
         label="item"
-        errors=""
+        onChange={({ target }) => handleReport(target)}
       />
       <Input
         id="tipo"
         label="tipo"
-        errors=""
+        onChange={({ target }) => handleReport(target)}
       />
-      <Input
+      {/* <Input
         id="quantidade"
         label="quantidade"
-        errors=""
         type="number"
-      />
+        onChange={({ target }) => handleReport(target)}
+      /> */}
       <Input
         id="tamanho"
         label="tamanho"
-        errors=""
+        onChange={({ target }) => handleReport(target)}
       />
       <Input
         id="validade"
         label="validade"
-        errors=""
         type="date"
+        onChange={({ target }) => handleReport(target)}
       />
-      <Input
+      {/* <Input
         id="limite"
         label="limite"
-        errors=""
         type="number"
-      />
-      <Button disabled={false} variant="secondary">
-        {false ? <Loading /> : "Gerar Relatório"}
+        onChange={({ target }) => handleReport(target)}
+      /> */}
+      <Button disabled={isSearching} variant="secondary">
+        {isSearching ? <Loading /> : "gerar relatório"}
       </Button>
     </form>
   );

@@ -6,6 +6,7 @@
   font-size: var(--gap-m);
   padding: var(--gap-l);
   text-transform: uppercase;
+  height: 46px;
 }
 
 button:hover {

@@ -1,6 +1,11 @@
+import { FormDonationRegistration } from "../../helper/validations";
 import styles from "./reportTable.module.css";
 
-export default function ReportTable() {
+export default function ReportTable({
+  reportQueryResult,
+}: {
+  reportQueryResult: FormDonationRegistration[];
+}) {
   return (
     <table className={styles.table}>
       <thead>
@@ -11,29 +16,24 @@ export default function ReportTable() {
           <th>Unid. Medida</th>
           <th>Tamanho</th>
           <th>Validade</th>
-          <th>Data Entrega</th>
+          <th>Data Entrada</th>
+          <th>Remover</th>
         </tr>
       </thead>
-      <tbody>
-        <tr>
-          <td>Camiseta</td>
-          <td>Vestuário</td>
-          <td>1,00</td>
-          <td>PC</td>
-          <td>TM</td>
-          <td>21/11/2023</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>Camiseta</td>
-          <td>Vestuário</td>
-          <td>1,00</td>
-          <td>PC</td>
-          <td>TM</td>
-          <td>21/11/2023</td>
-          <td></td>
-        </tr>
-      </tbody>
+      {reportQueryResult.map((donation) => (
+        <tbody>
+          <tr>
+            <td>{donation.item}</td>
+            <td>{donation.type}</td>
+            <td>{donation.quantity}</td>
+            <td>{donation.measure}</td>
+            <td>{donation.size}</td>
+            <td>{donation.validity}</td>
+            <td>{donation.entryDate}</td>
+            <td>{}</td>
+          </tr>
+        </tbody>
+      ))}
     </table>
   );
 }
