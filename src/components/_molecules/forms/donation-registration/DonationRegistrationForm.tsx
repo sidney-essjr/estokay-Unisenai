@@ -11,6 +11,7 @@ import {
 } from "../../../helper/validations";
 import { DonatorsI } from "../../../services/getDonators";
 import styles from "./donationRegistrationForm.module.css";
+import postDonation from "../../../services/postDonation";
 
 export default function DonationRegistrationForm({
   data,
@@ -35,11 +36,14 @@ export default function DonationRegistrationForm({
     setDonators(data);
   }, [data]);
 
-  function onSubmit(data: FormDonationRegistration) {
-    console.log(data);
-    reset();
-    setSubmitError({ error: true, message: "" });
-    openAlert();
+  async function onSubmit(data: FormDonationRegistration) {
+    const result = await postDonation(data);
+    if (result.error) {
+      setSubmitError({ error: true, message: result.error });
+    } else {
+      reset();
+      openAlert();
+    }
   }
 
   return (
@@ -60,12 +64,12 @@ export default function DonationRegistrationForm({
         {...register("type")}
       />
       <datalist id="lista-tipo">
-        <option value="Alimento"></option>
-        <option value="Brinquedo"></option>
-        <option value="Higiene"></option>
-        <option value="Utensílio Doméstico"></option>
-        <option value="Vestuário"></option>
-        <option value="Outros"></option>
+        <option key="alimento" value="ALIMENTO"></option>
+        <option key="brinquedo" value="BRINQUEDO"></option>
+        <option key="higiene" value="HIGIENE"></option>
+        <option key="uDomestico" value="UTENSÍLIO DOMÉSTICO"></option>
+        <option key="vestuario" value="VESTUÁRIO"></option>
+        <option key="outros" value="OUTROS"></option>
       </datalist>
       <Input
         type="number"
@@ -92,10 +96,10 @@ export default function DonationRegistrationForm({
         {...register("measure")}
       />
       <datalist id="lista-medida">
-        <option value="KG"></option>
-        <option value="LT"></option>
-        <option value="PC"></option>
-        <option value="UN"></option>
+        <option key="kg" value="KG"></option>
+        <option key="lt" value="LT"></option>
+        <option key="pc" value="PC"></option>
+        <option key="un" value="UN"></option>
       </datalist>
       <Input
         id="doador"
@@ -106,8 +110,12 @@ export default function DonationRegistrationForm({
         {...register("donator")}
       />
       <datalist id="lista-doador">
-        {donators.map((d) => (
-          <option key={d.id} value={d.name}></option>
+        {donators.map((d, key) => (
+          <>
+            <option key={key} value={`${d.name} - ${d.phone}`}>
+              {`${d.address} ${d.number} - ${d.city}, ${d.uf}`}
+            </option>
+          </>
         ))}
       </datalist>
       <Input
@@ -124,7 +132,7 @@ export default function DonationRegistrationForm({
         errors={errors.validity?.message}
         {...register("validity")}
       />
-      <Button disabled={isSubmitting} variant="secondary">
+      <Button type="submit" disabled={isSubmitting} variant="secondary">
         {isSubmitting ? <Loading /> : "Confirmar"}
       </Button>
 

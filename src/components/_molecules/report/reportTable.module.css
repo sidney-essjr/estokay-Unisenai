@@ -1,18 +1,27 @@
 .table {
   border-collapse: collapse;
+  font-size: small;
 }
 
 .table tr {
-  border-bottom: 1px solid #999;
+  border-bottom: 1px solid var(--icons-color);
+}
+.table th:first-child {
+  padding-left: 1rem;
 }
 
 .table thead tr th {
   text-align: left;
   text-transform: uppercase;
   font-weight: bold;
-  padding: 1rem 0;
+  padding: var(--gap-m) 2rem var(--gap-m) 0;
 }
 
 .table tbody tr td {
-  padding: 1rem 0;
+  padding: var(--gap-m) 2rem var(--gap-m) 0;
+  white-space: nowrap;
+}
+
+.table td:first-child {
+  padding-left: 1rem;
 }

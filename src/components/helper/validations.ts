@@ -49,15 +49,15 @@ export const donatorRegistration = z.object({
 export type FormDonatorRegistration = z.infer<typeof donatorRegistration>;
 
 export const donationRegistration = z.object({
-  item: z.string().min(3, "Campo obrigatório!"),
+  item: z.string().min(3, "Campo obrigatório!").toUpperCase(),
   type: z.enum(
     [
-      "Alimento",
-      "Brinquedo",
-      "Higiene",
-      "Utensílio Doméstico",
-      "Vestuário",
-      "Outros",
+      "ALIMENTO",
+      "BRINQUEDO",
+      "HIGIENE",
+      "UTENSÍLIO DOMÉSTICO",
+      "VESTUÁRIO",
+      "OUTROS",
     ],
     { message: "Selecione um tipo!" }
   ),
@@ -67,17 +67,15 @@ export const donationRegistration = z.object({
     .refine((value) => Number(value) > 0, {
       message: "Mínimo 0,1",
     }),
-  size: z.string().optional(),
+  size: z.string().toUpperCase().optional(),
   measure: z.enum(["KG", "LT", "PC", "UN"], {
     message: "Campo obrigatório!",
   }),
-  donator: z.string().min(1, "Campo obrigatório!"),
+  donator: z.string().min(1, "Campo obrigatório!").toUpperCase(),
   entryDate: z
     .string()
     .regex(/^\d{4}-\d{2}-\d{2}$/, { message: "Campo obrigatório" }),
-  validity: z
-    .string()
-    .optional(),
+  validity: z.string().optional(),
 });
 
 export type FormDonationRegistration = z.infer<typeof donationRegistration>;

@@ -5,10 +5,10 @@ import Input from "../../../_atoms/inputs/Input";
 import styles from "./reportSearchForm.module.css";
 
 export type ReportI = {
-  item: string;
-  tipo: string;
-  tamanho: string;
-  validade: string;
+  item: string | null;
+  tipo: string | null;
+  tamanho: string | null;
+  validade: string | null;
 };
 
 export default function ReportSearchForm({
@@ -19,17 +19,17 @@ export default function ReportSearchForm({
   isSearching: boolean;
 }) {
   const [report, setReport] = useState<ReportI>({
-    item: "",
-    tipo: "",
-    tamanho: "",
-    validade: "",
+    item: null,
+    tipo: null,
+    tamanho: null,
+    validade: null,
   });
 
   function handleReport(event: HTMLInputElement) {
     setReport((prev) => {
       return {
         ...prev,
-        [event.name]: event.value,
+        [event.name]: event.value.toUpperCase(),
       };
     });
   }
@@ -43,14 +43,25 @@ export default function ReportSearchForm({
     <form className={styles.form} onSubmit={onSubmit}>
       <Input
         id="item"
+        name="item"
         label="item"
         onChange={({ target }) => handleReport(target)}
       />
       <Input
         id="tipo"
         label="tipo"
+        name="tipo"
+        list="lista-tipo"
         onChange={({ target }) => handleReport(target)}
       />
+      <datalist id="lista-tipo">
+        <option key="alimento" value="ALIMENTO"></option>
+        <option key="brinquedo" value="BRINQUEDO"></option>
+        <option key="higiene" value="HIGIENE"></option>
+        <option key="uDomestico" value="UTENSÍLIO DOMÉSTICO"></option>
+        <option key="vestuario" value="VESTUÁRIO"></option>
+        <option key="outros" value="OUTROS"></option>
+      </datalist>
       {/* <Input
         id="quantidade"
         label="quantidade"
@@ -59,11 +70,13 @@ export default function ReportSearchForm({
       /> */}
       <Input
         id="tamanho"
+        name="tamanho"
         label="tamanho"
         onChange={({ target }) => handleReport(target)}
       />
       <Input
         id="validade"
+        name="validade"
         label="validade"
         type="date"
         onChange={({ target }) => handleReport(target)}

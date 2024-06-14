@@ -1,3 +1,4 @@
+import { convertDate } from "../../helper/convertDate";
 import { FormDonationRegistration } from "../../helper/validations";
 import styles from "./reportTable.module.css";
 
@@ -17,7 +18,7 @@ export default function ReportTable({
           <th>Tamanho</th>
           <th>Validade</th>
           <th>Data Entrada</th>
-          <th>Remover</th>
+          <th>Doador</th>
         </tr>
       </thead>
       {reportQueryResult.map((donation) => (
@@ -28,8 +29,9 @@ export default function ReportTable({
             <td>{donation.quantity}</td>
             <td>{donation.measure}</td>
             <td>{donation.size}</td>
-            <td>{donation.validity}</td>
-            <td>{donation.entryDate}</td>
+            <td>{convertDate(donation.validity)}</td>
+            <td>{convertDate(donation.entryDate)}</td>
+            <td>{donation.donator}</td>
             <td>{}</td>
           </tr>
         </tbody>

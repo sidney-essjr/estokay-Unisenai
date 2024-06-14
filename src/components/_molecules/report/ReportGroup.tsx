@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
+import { filterReport } from "../../helper/filterReport";
 import { FormDonationRegistration } from "../../helper/validations";
-import { getReport } from "../../services/getReport";
+import { getDonations } from "../../services/getDonations";
 import ReportSearchForm, {
   ReportI,
 } from "../forms/report-search/ReportSearchForm";
@@ -16,14 +17,13 @@ export default function ReportGroup() {
 
   useEffect(() => {
     async function handleReportResult() {
-      if (reportSearch) {
-        setIsSearching(true);
-        const reportResult: FormDonationRegistration[] = await getReport(
-          reportSearch
-        );
-        setReportQueryResult(reportResult);
-        setIsSearching(false);
+      setIsSearching(true);
+      const { data } = await getDonations();
+      if (reportSearch && data) {
+        const filteredReport = filterReport(reportSearch, data);
+        setReportQueryResult(filteredReport);
       }
+      setIsSearching(false);
     }
     handleReportResult();
   }, [reportSearch]);
