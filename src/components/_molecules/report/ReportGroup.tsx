@@ -5,6 +5,7 @@ import { getDonations } from "../../services/getDonations";
 import ReportSearchForm, {
   ReportI,
 } from "../forms/report-search/ReportSearchForm";
+import Pagination from "../pagination/Pagination";
 import styles from "./reportGroup.module.css";
 import ReportTable from "./ReportTable";
 
@@ -13,7 +14,19 @@ export default function ReportGroup() {
   const [reportQueryResult, setReportQueryResult] = useState<
     FormDonationRegistration[]
   >([]);
+  const [currentPage, setCurrentPage] = useState(1);
   const [isSearching, setIsSearching] = useState(false);
+  const [numberOfPages, setNumbersOfPages] = useState<number>(0);
+
+  function handleNumbersOfPages(pages: number) {
+    if (pages === 0) {
+      setNumbersOfPages(0);
+    } else if (pages < 1) {
+      setNumbersOfPages(1);
+    } else {
+      setNumbersOfPages(pages);
+    }
+  }
 
   useEffect(() => {
     async function handleReportResult() {
@@ -22,6 +35,7 @@ export default function ReportGroup() {
       if (reportSearch && data) {
         const filteredReport = filterReport(reportSearch, data);
         setReportQueryResult(filteredReport);
+        handleNumbersOfPages(filteredReport.length / 10);
       }
       setIsSearching(false);
     }
@@ -35,6 +49,11 @@ export default function ReportGroup() {
         isSearching={isSearching}
       />
       <ReportTable reportQueryResult={reportQueryResult} />
+      <Pagination
+        currentPage={currentPage}
+        numberOfPages={numberOfPages}
+        setCurrentPage={setCurrentPage}
+      />
     </div>
   );
 }

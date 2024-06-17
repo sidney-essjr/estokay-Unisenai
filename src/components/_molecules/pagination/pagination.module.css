@@ -1,0 +1,38 @@
+.container {
+  align-items: start;
+  justify-content: center;
+  display: flex;
+  column-gap: var(--gap-s);
+}
+
+.container button {
+  background: none;
+  padding: var(--gap-m);
+  border-radius: 10px;
+  font-size: var(--gap-l);
+  border: 1px solid var(--icons-color);
+}
+
+.content {
+  max-width: 200px;
+  align-items: center;
+  justify-content: start;
+  display: flex;
+  overflow: auto;
+  column-gap: var(--gap-s);
+  padding-inline: 5px;
+  scrollbar-color: var(--icons-color) transparent;
+}
+
+.default {
+  border: 1px solid var(--icons-color);
+  border-radius: 10px;
+  padding: var(--gap-m);
+}
+
+.selected {
+  border: 1px solid var(--icons-color);
+  border-radius: 10px;
+  padding: var(--gap-m);
+  background-color: var(--icons-color);
+}

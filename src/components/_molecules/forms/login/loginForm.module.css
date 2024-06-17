@@ -8,6 +8,6 @@
   padding: var(--gap-l);
 }
 
-button {
+.container button {
   width: 200px;
 }

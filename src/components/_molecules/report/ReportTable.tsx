@@ -16,21 +16,23 @@ export default function ReportTable({
           <th>Qtd.</th>
           <th>Unid. Medida</th>
           <th>Tamanho</th>
-          <th>Validade</th>
           <th>Data Entrada</th>
+          <th>Validade</th>
           <th>Doador</th>
         </tr>
       </thead>
-      {reportQueryResult.map((donation) => (
+      {reportQueryResult.map((donation, key) => (
         <tbody>
-          <tr>
+          <tr key={key}>
             <td>{donation.item}</td>
             <td>{donation.type}</td>
             <td>{donation.quantity}</td>
             <td>{donation.measure}</td>
-            <td>{donation.size}</td>
-            <td>{convertDate(donation.validity)}</td>
+            <td>{donation.size ? donation.size : "N/A"}</td>
             <td>{convertDate(donation.entryDate)}</td>
+            <td>
+              {donation.validity ? convertDate(donation.validity) : "N/A"}
+            </td>
             <td>{donation.donator}</td>
             <td>{}</td>
           </tr>

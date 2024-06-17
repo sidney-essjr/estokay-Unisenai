@@ -1,0 +1,5 @@
+.container {
+  border: 1px solid var(--icons-color);
+  border-radius: 10px;
+  padding: var(--gap-m);
+}
