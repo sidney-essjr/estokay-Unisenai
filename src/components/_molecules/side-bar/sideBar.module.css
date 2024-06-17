@@ -7,17 +7,16 @@
   width: 80px;
   border-right: 2px solid #d9d9d9;
   height: calc(100vh - 120px);
-  padding: 2rem var(--gap-l) ;
-  transition: 0.5s ease-in;
+  padding: 2rem var(--gap-l);
+  transition: 0.3s ease-in;
   min-height: 400px;
-  z-index: 100;
   background-color: #fff;
 }
 
 .container p {
   opacity: 1;
   transform: translateX(30%);
-  transition: transform 0.5s ease-in, opacity 0.5s ease-in;
+  transition: transform 0.3s ease-in, opacity 0.3s ease-in;
 }
 
 .container:hover {

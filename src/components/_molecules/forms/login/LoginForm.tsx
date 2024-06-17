@@ -3,7 +3,6 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import Loading from "../../../../assets/svg/Loading";
-import { useAuth } from "../../../../contexts/authContext";
 import Button from "../../../_atoms/buttons/Button";
 import Input from "../../../_atoms/inputs/Input";
 import ValidationError from "../../../helper/erros/ValidationError";
@@ -20,12 +19,14 @@ export default function LoginForm() {
   const [submitError, setSubmitError] = useState({ error: false, message: "" });
 
   const navigate = useNavigate();
-  const auth = useAuth();
 
   async function onSubmit(data: FormLoginData) {
     try {
-      await doSignInWithEmailAndPassword(data.email, data.password);
-      if (auth?.currentUser) navigate("/main");
+      const user = await doSignInWithEmailAndPassword(
+        data.email,
+        data.password
+      );
+      if (user) navigate("/main");
     } catch (error) {
       setSubmitError({
         error: true,

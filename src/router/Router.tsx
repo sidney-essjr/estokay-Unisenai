@@ -8,6 +8,7 @@ import LoginPage from "../pages/LoginPage";
 import MainPage from "../pages/MainPage";
 import ProtectedRoute from "./ProtectedRoute";
 import ReportPage from "../pages/ReportPage";
+import ItemDeliveredPage from "../pages/ItemDeliveredPage";
 
 const router = createBrowserRouter([
   {
@@ -47,6 +48,14 @@ const router = createBrowserRouter([
         element: (
           <ProtectedRoute redirectPath="/login">
             <ReportPage />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "/report/delivered/:id",
+        element: (
+          <ProtectedRoute redirectPath="/login">
+            <ItemDeliveredPage />
           </ProtectedRoute>
         ),
       },

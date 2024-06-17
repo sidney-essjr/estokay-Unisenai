@@ -1,16 +1,19 @@
+import { Link } from "react-router-dom";
+import DeliveredIcon from "../../../assets/svg/DeliveredIcon";
 import { convertDate } from "../../helper/convertDate";
-import { FormDonationRegistration } from "../../helper/validations";
+import { DonationI } from "../../services/getDonations";
 import styles from "./reportTable.module.css";
 
 export default function ReportTable({
   reportQueryResult,
 }: {
-  reportQueryResult: FormDonationRegistration[];
+  reportQueryResult: DonationI[];
 }) {
   return (
     <table className={styles.table}>
       <thead>
         <tr>
+          <th>Baixa</th>
           <th>Item</th>
           <th>Tipo</th>
           <th>Qtd.</th>
@@ -24,6 +27,11 @@ export default function ReportTable({
       {reportQueryResult.map((donation, key) => (
         <tbody>
           <tr key={key}>
+            <td>
+              <Link to={`/report/delivered/${donation.id}`}>
+                <DeliveredIcon />
+              </Link>
+            </td>
             <td>{donation.item}</td>
             <td>{donation.type}</td>
             <td>{donation.quantity}</td>

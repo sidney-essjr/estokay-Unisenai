@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { filterReport } from "../../helper/filterReport";
-import { FormDonationRegistration } from "../../helper/validations";
-import { getDonations } from "../../services/getDonations";
+import { DonationI, getDonations } from "../../services/getDonations";
 import ReportSearchForm, {
   ReportI,
 } from "../forms/report-search/ReportSearchForm";
@@ -11,9 +10,7 @@ import ReportTable from "./ReportTable";
 
 export default function ReportGroup() {
   const [reportSearch, setReportSearch] = useState<ReportI | null>(null);
-  const [reportQueryResult, setReportQueryResult] = useState<
-    FormDonationRegistration[]
-  >([]);
+  const [reportQueryResult, setReportQueryResult] = useState<DonationI[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [isSearching, setIsSearching] = useState(false);
   const [numberOfPages, setNumbersOfPages] = useState<number>(0);
@@ -28,7 +25,7 @@ export default function ReportGroup() {
     }
   }
 
-  function handleReportQueryResult(results: FormDonationRegistration[]) {
+  function handlePaginationResult(results: DonationI[]) {
     const startIndex = currentPage * 10 - 10;
     const position =
       results.length > startIndex + 10
@@ -42,20 +39,22 @@ export default function ReportGroup() {
   }
 
   useEffect(() => {
-    handleReportQueryResult(reportQueryResult);
+    handlePaginationResult(reportQueryResult);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentPage]);
 
   useEffect(() => {
     async function handleReportResult() {
-      setIsSearching(true);
-      const { data } = await getDonations();
-      if (reportSearch && data) {
-        const filteredReport = filterReport(reportSearch, data);
-        handleReportQueryResult(filteredReport);
-        handleNumbersOfPages(filteredReport.length / 10);
+      if (reportSearch) {
+        setIsSearching(true);
+        const { data } = await getDonations();
+        if (data) {
+          const filteredReport = filterReport(reportSearch, data);
+          handlePaginationResult(filteredReport);
+          handleNumbersOfPages(filteredReport.length / 10);
+        }
+        setIsSearching(false);
       }
-      setIsSearching(false);
     }
     handleReportResult();
     // eslint-disable-next-line react-hooks/exhaustive-deps

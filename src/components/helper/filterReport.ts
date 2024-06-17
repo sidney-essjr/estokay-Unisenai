@@ -1,10 +1,7 @@
 import { ReportI } from "../_molecules/forms/report-search/ReportSearchForm";
-import { FormDonationRegistration } from "./validations";
+import { DonationsI } from "../services/getDonations";
 
-export function filterReport(
-  reportFilter: ReportI,
-  reports: FormDonationRegistration[]
-) {
+export function filterReport(reportFilter: ReportI, reports: DonationsI[]) {
   const filteredReport = reports.filter((r) => {
     let item: boolean = true,
       tipo: boolean = true,

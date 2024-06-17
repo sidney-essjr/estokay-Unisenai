@@ -5,6 +5,7 @@ import NewUserIcon from "../../../assets/svg/NewUserIcon";
 import ReportIcon from "../../../assets/svg/ReportIcon";
 import SideBarIcon from "../../_atoms/box/side-Bar/SideBarIcon";
 import styles from "./sideBar.module.css";
+import { doSignOut } from "../../services/auth";
 
 export default function SideBar() {
   return (
@@ -18,7 +19,7 @@ export default function SideBar() {
       <Link to={"/report"}>
         <SideBarIcon icon={<ReportIcon />} text="relatórios" />
       </Link>
-      <Link to={""}>
+      <Link to={""} onClick={doSignOut}>
         <SideBarIcon icon={<LogoutIcon />} text="sair" />
       </Link>
     </nav>
