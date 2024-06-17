@@ -1,5 +1,4 @@
 .footer {
-  width: var(--container-width);
   margin: auto;
   display: flex;
   align-items: center;

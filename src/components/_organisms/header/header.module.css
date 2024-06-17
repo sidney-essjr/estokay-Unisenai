@@ -1,5 +1,4 @@
 .header {
-  width: var(--container-width);
   height: 100px;
   display: flex;
   justify-content: space-between;

@@ -34,7 +34,6 @@ export default function ReportTable({
               {donation.validity ? convertDate(donation.validity) : "N/A"}
             </td>
             <td>{donation.donator}</td>
-            <td>{}</td>
           </tr>
         </tbody>
       ))}

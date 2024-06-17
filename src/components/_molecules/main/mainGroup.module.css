@@ -1,4 +1,5 @@
 .container {
   display: flex;
   column-gap: var(--gap-xl);
+  padding-inline: var(--gap-l);
 }

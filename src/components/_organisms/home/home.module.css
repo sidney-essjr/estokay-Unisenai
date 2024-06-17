@@ -1,5 +1,4 @@
 .container {
-  width: var(--container-width);
   height: calc(100vh - 200px);
   min-height: 500px;
   margin: auto;

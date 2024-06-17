@@ -28,18 +28,37 @@ export default function ReportGroup() {
     }
   }
 
+  function handleReportQueryResult(results: FormDonationRegistration[]) {
+    const startIndex = currentPage * 10 - 10;
+    const position =
+      results.length > startIndex + 10
+        ? startIndex + 10
+        : results.length - startIndex;
+    const temp = [];
+    for (let i = startIndex; i < position; i++) {
+      temp.push(results[i]);
+    }
+    setReportQueryResult(temp);
+  }
+
+  useEffect(() => {
+    handleReportQueryResult(reportQueryResult);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentPage]);
+
   useEffect(() => {
     async function handleReportResult() {
       setIsSearching(true);
       const { data } = await getDonations();
       if (reportSearch && data) {
         const filteredReport = filterReport(reportSearch, data);
-        setReportQueryResult(filteredReport);
+        handleReportQueryResult(filteredReport);
         handleNumbersOfPages(filteredReport.length / 10);
       }
       setIsSearching(false);
     }
     handleReportResult();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [reportSearch]);
 
   return (

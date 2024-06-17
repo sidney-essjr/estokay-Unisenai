@@ -1,5 +1,6 @@
 .container {
   display: flex;
+  position: absolute;
   flex-direction: column;
   overflow: hidden;
   row-gap: var(--gap-xl);
@@ -9,6 +10,8 @@
   padding: 2rem var(--gap-l) ;
   transition: 0.5s ease-in;
   min-height: 400px;
+  z-index: 100;
+  background-color: #fff;
 }
 
 .container p {
