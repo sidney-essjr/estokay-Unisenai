@@ -34,7 +34,7 @@ export default function DonationRegistration() {
         isOpen={showAlert}
         onClose={handleCloseAlert}
         time={3000}
-        log="Doador cadastrado com sucesso!"
+        log="Doação cadastrada com sucesso!"
       />
     </section>
   );

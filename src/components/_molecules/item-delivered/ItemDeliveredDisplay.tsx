@@ -1,5 +1,5 @@
 import { DonationI } from "../../services/getDonations";
-import styles from "./ItemDeliveredDisplay.module.css";
+import styles from "./itemDeliveredDisplay.module.css";
 
 export default function ItemDeliveredDisplay({
   donation,
@@ -18,10 +18,6 @@ export default function ItemDeliveredDisplay({
           <p>{donation?.type}</p>
         </div>
         <div>
-          <p>Quantidade</p>
-          <p>{donation?.quantity}</p>
-        </div>
-        <div>
           <p>Tamanho</p>
           <p>{donation?.size ? donation.size : "N/A"}</p>
         </div>
@@ -32,6 +28,10 @@ export default function ItemDeliveredDisplay({
         <div>
           <p>Validade</p>
           <p>{donation.validity ? donation.validity : "N/A"}</p>
+        </div>
+        <div>
+          <p>Quantidade</p>
+          <p>{donation?.quantity}</p>
         </div>
         <div>
           <p>Doador</p>

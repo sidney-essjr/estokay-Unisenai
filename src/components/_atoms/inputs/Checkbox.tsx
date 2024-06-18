@@ -10,7 +10,7 @@ import ValidationError from "../../helper/erros/ValidationError";
 type CheckboxProps = ComponentPropsWithRef<"input"> & {
   id: string;
   label: ReactNode;
-  errors: string | undefined;
+  errors?: string | undefined;
 };
 
 const Checkbox = forwardRef(
