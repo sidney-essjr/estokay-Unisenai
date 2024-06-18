@@ -12,7 +12,7 @@ export async function getDonators() {
 
     const donators: DonatorsI[] = querySnapshot.docs.map((doc) => ({
       id: doc.id,
-      ...(doc.data().donator as FormDonatorRegistration),
+      ...(doc.data() as FormDonatorRegistration),
     }));
 
     return { data: donators, error: null };

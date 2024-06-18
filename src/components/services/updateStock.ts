@@ -20,10 +20,8 @@ export async function updateStock(
   };
 
   try {
-    await updateDoc(docRef, { donation });
+    await updateDoc(docRef, donation);
   } catch (error) {
     console.log(error);
   }
 }
-
-

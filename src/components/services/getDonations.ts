@@ -12,7 +12,7 @@ export async function getDonations() {
   try {
     const donations: DonationI[] = querySnapshot.docs.map((doc) => ({
       id: doc.id,
-      ...(doc.data().donation as FormDonationRegistration),
+      ...(doc.data() as FormDonationRegistration),
     }));
 
     return { data: donations, error: null };

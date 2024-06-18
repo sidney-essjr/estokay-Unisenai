@@ -4,9 +4,7 @@ import { FormDonationRegistration } from "../helper/validations";
 
 export default async function postDonation(donation: FormDonationRegistration) {
   try {
-    const docRef = await addDoc(collection(db, "donations"), {
-      donation,
-    });
+    const docRef = await addDoc(collection(db, "donations"), donation);
     return { data: docRef.id, error: null };
   } catch (error) {
     if (error instanceof Error) {

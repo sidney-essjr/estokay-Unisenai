@@ -12,7 +12,7 @@ export async function getDonation(id: string) {
       return {
         data: {
           id: response.id,
-          ...(response.data().donation as FormDonationRegistration),
+          ...(response.data() as FormDonationRegistration),
         },
         error: null,
       };
