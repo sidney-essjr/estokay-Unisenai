@@ -70,6 +70,7 @@ export default function ItemDeliveredForm({
         id="quantidade"
         label="Itens entregues"
         type="number"
+        step={0.1}
         value={quantity}
         min={0}
         max={Number(donation.quantity)}
