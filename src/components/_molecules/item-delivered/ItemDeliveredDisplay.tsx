@@ -1,5 +1,5 @@
 import { DonationI } from "../../services/getDonations";
-import styles from "./itemDeliveredDisplay.module.css"
+// import styles from "./itemDeliveredDisplay.module.css"
 
 export default function ItemDeliveredDisplay({
   donation,
@@ -7,8 +7,8 @@ export default function ItemDeliveredDisplay({
   donation: DonationI;
 }) {
   return (
-    <section className={styles.container}>
-      <div className={styles.content}>
+    <section>
+      <div>
         <div>
           <p>Item</p>
           <p>{donation?.item}</p>
