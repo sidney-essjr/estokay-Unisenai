@@ -1,5 +1,5 @@
 import { DonationI } from "../../services/getDonations";
-import styles from "./itemDeliveredDisplay.module.css";
+import styles from "./itemDeliveredDisplay.module.css"
 
 export default function ItemDeliveredDisplay({
   donation,
