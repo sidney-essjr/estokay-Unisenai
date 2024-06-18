@@ -77,7 +77,7 @@ export default function ItemDeliveredForm({
       />
       <Checkbox
         id="zerarEstoque"
-        label="Zerar quantidade em estoque"
+        label="Zerar e remover do estoque"
         value={String(isClearStock)}
         onClick={() => setIsClearStock(!isClearStock)}
       />
