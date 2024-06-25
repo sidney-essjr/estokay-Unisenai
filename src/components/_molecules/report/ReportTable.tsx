@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import DeliveredIcon from "../../../assets/svg/DeliveredIcon";
+import PrintIcon from "../../../assets/svg/PrintIcon";
 import { convertDate } from "../../helper/convertDate";
+import printTag from "../../helper/printTag";
 import { DonationI } from "../../services/getDonations";
 import styles from "./reportTable.module.css";
 
@@ -22,6 +24,7 @@ export default function ReportTable({
           <th>Data Entrada</th>
           <th>Validade</th>
           <th>Doador</th>
+          <th>Etiqueta</th>
         </tr>
       </thead>
       {reportQueryResult.map((donation, key) => (
@@ -42,6 +45,9 @@ export default function ReportTable({
               {donation.validity ? convertDate(donation.validity) : "N/A"}
             </td>
             <td>{donation.donator}</td>
+            <td onClick={() => printTag({ ...donation })}>
+              <PrintIcon />
+            </td>
           </tr>
         </tbody>
       ))}

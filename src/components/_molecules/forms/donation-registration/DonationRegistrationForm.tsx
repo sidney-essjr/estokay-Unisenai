@@ -5,13 +5,14 @@ import Loading from "../../../../assets/svg/Loading";
 import Button from "../../../_atoms/buttons/Button";
 import Input from "../../../_atoms/inputs/Input";
 import ValidationError from "../../../helper/erros/ValidationError";
+import printTag from "../../../helper/printTag";
 import {
   donationRegistration,
   FormDonationRegistration,
 } from "../../../helper/validations";
 import { DonatorsI } from "../../../services/getDonators";
-import styles from "./donationRegistrationForm.module.css";
 import postDonation from "../../../services/postDonation";
+import styles from "./donationRegistrationForm.module.css";
 
 export default function DonationRegistrationForm({
   data,
@@ -24,6 +25,7 @@ export default function DonationRegistrationForm({
     register,
     handleSubmit,
     reset,
+    getValues,
     formState: { errors, isSubmitting },
   } = useForm<FormDonationRegistration>({
     resolver: zodResolver(donationRegistration),
@@ -31,18 +33,32 @@ export default function DonationRegistrationForm({
 
   const [donators, setDonators] = useState(data);
   const [submitError, setSubmitError] = useState({ error: false, message: "" });
+  const [wasPrinted, setWasPrinted] = useState(false);
+
+  function handleWasPrinted() {
+    setWasPrinted(true);
+  }
 
   useEffect(() => {
     setDonators(data);
   }, [data]);
 
   async function onSubmit(data: FormDonationRegistration) {
-    const result = await postDonation(data);
-    if (result.error) {
-      setSubmitError({ error: true, message: result.error });
-    } else {
-      reset();
-      openAlert();
+    let confirm = wasPrinted;
+    if (!wasPrinted) {
+      confirm = window.confirm(
+        "\nA etiqueta não foi impressa, deseja prosseguir sem realizar a impressão?\n\nPara posterior impressão acesse a aba relatórios!"
+      );
+    }
+    if (confirm) {
+      const result = await postDonation(data);
+      if (result.error) {
+        setSubmitError({ error: true, message: result.error });
+      } else {
+        reset();
+        openAlert();
+      }
+      setWasPrinted(false);
     }
   }
 
@@ -132,9 +148,19 @@ export default function DonationRegistrationForm({
         errors={errors.validity?.message}
         {...register("validity")}
       />
-      <Button type="submit" disabled={isSubmitting} variant="secondary">
-        {isSubmitting ? <Loading /> : "Confirmar"}
-      </Button>
+      <div className={styles.buttonArea}>
+        <Button type="submit" disabled={isSubmitting} variant="secondary">
+          {isSubmitting ? <Loading /> : "Confirmar"}
+        </Button>
+
+        <Button
+          type="button"
+          variant="secondary"
+          onClick={() => printTag({ ...getValues() }, handleWasPrinted)}
+        >
+          Imprimir etiqueta
+        </Button>
+      </div>
 
       {submitError.error && (
         <ValidationError>{submitError.message}</ValidationError>

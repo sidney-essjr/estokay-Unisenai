@@ -28,5 +28,6 @@
 }
 
 .table td:last-child {
-  padding-right: var(--gap-l);
+  padding: 0;
+  cursor: pointer;
 }

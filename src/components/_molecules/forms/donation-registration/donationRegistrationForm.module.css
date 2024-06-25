@@ -6,7 +6,7 @@
     "left center2 center2 center2 rigth"
     "left center3 center3 center3 rigth"
     "left center4 center4 center4 rigth"
-    "left center5 center5 center5 rigth"
+    "button button button button"
     "left center6 center6 center6 rigth"
     "left center7 center7 center7 rigth";
   align-items: center;
@@ -43,13 +43,23 @@
   grid-column: span 2;
 }
 
-.container button {
-  width: 200px;
-  grid-area: center5;
+.container div:nth-child(12) {
+  grid-column: span 5;
+}
+
+.buttonArea {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
   margin: auto;
 }
 
-.container div:nth-child(13) {
+.buttonArea button {
+  width: 200px;
+  margin: auto;
+}
+
+.container div:nth-child(14) {
   grid-area: center7;
   margin: auto;
 }
